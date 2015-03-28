@@ -16,9 +16,10 @@ public class MainActivity extends Activity {
     }
 
     public void onClick(View view) {
-    	//net.learn2develop.SecondActivity is defined
-        Intent i = new 
-                Intent("net.my.SecondActivity");
+    	//net.my.SecondActivity is defined in AndroidManifest.xml file under Intent filter.
+//        Intent i = new 
+//                Intent("net.my.SecondActivity");
+    	Intent i = new Intent(this, SecondActivity.class);
 
         //---use putExtra() to add new key/value pairs---            
         i.putExtra("str1", "This is a string");
@@ -43,26 +44,26 @@ public class MainActivity extends Activity {
         startActivityForResult(i, 1);        
     }
     
-//    public void onActivityResult(int requestCode, 
-//            int resultCode, Intent data)
-//    {
-//        //---check if the request code is 1---
-//        if (requestCode == 1) {
-//
-//            //---if the result is OK--- 
-//            if (resultCode == RESULT_OK) {
-//
-//                //---get the result using getIntExtra()---
+    public void onActivityResult(int requestCode, 
+            int resultCode, Intent data)
+    {
+        //---check if the request code is 1---
+        if (requestCode == 1) {
+
+            //---if the result is OK--- 
+            if (resultCode == RESULT_OK) {
+
+                //---get the result using getIntExtra()---
 //                Toast.makeText(this, Integer.toString(
 //                        data.getIntExtra("age3", 0)), 
 //                        Toast.LENGTH_SHORT).show();      
-//
-//                //---get the result using getData()---
-//                Uri url = data.getData();
-//                Toast.makeText(this, url.toString(), 
-//                        Toast.LENGTH_SHORT).show();
-//            }            
-//        }
-//    }
+
+                //---get the result using getData()---
+                Uri url = data.getData();
+                Toast.makeText(this, url.toString(), 
+                        Toast.LENGTH_SHORT).show();
+            }            
+        }
+    }
 
 }

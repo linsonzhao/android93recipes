@@ -11,6 +11,10 @@ public class MyCustomClass implements Serializable {
         _name = name;    
     }
     
+    public int cal(){
+    	return 5 + 8;
+    }
+    
     public String Name() {
         return _name;
     }
